@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if result  %}
+<h3 class="text-center my-4">いいねの結果</h3>
+<table class="table table-striped">
+    <tr><td>対象のURL</td><td>{{ result.url }}</td></tr>
+    <tr><td>成功いいね数</td><td>{{ result.like_count }}</td></tr>
+</table>
+{% else %}
+<h3 class="text-center my-4">いいねに失敗しました。通信状況等を確認してください</h3>
+<div class="text-center">
+	<a href="{% url 'app:index' %}" class="btn btn-outline-info mr-3" role="button">やり直す</a>
+</div>
+{% endif %}
+
+{% endblock content %}

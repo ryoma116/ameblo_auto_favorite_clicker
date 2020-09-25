@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 class="text-center my-4">Instagramのアカウントを入力してください</h3>
+<form action="{% url 'app:setup' %}" method="post">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                {% for field in form %}
+                    {{ field }}
+                    <hr>
+                {% endfor %}
+                <button type="submit" class="btn btn-success btn-lg btn-block" >ハッシュタグを選択する</button>
+                {% csrf_token %}
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock content %}
